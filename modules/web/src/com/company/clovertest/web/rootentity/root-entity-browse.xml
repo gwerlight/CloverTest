@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.clovertest.web.rootentity.RootEntityBrowse"
+        focusComponent="rootEntitiesTable"
+        lookupComponent="rootEntitiesTable"
+        messagesPack="com.company.clovertest.web.rootentity">
+    <dsContext>
+        <groupDatasource id="rootEntitiesDs"
+                         class="com.company.clovertest.entity.RootEntity"
+                         view="rootEntity-view">
+            <query>
+                <![CDATA[select e from clovertest$RootEntity e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="rootEntitiesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="rootEntitiesTable"
+                datasource="rootEntitiesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="rootEntitiesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="code"/>
+                <column id="bezeichnung"/>
+            </columns>
+            <rows datasource="rootEntitiesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="rootEntitiesTable.create"/>
+                <button id="editBtn"
+                        action="rootEntitiesTable.edit"/>
+                <button id="removeBtn"
+                        action="rootEntitiesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

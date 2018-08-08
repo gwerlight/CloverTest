@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.clovertest.web.subelement1.SubElement1Edit"
+        datasource="subElement1Ds"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.clovertest.web.subelement1">
+    <dsContext>
+        <datasource id="subElement1Ds"
+                    class="com.company.clovertest.entity.SubElement1"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="subElement1Ds">
+            <column width="250px">
+                <field property="code"/>
+                <field property="bezeichnung"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

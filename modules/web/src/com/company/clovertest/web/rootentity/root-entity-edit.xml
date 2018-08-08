@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.clovertest.web.rootentity.RootEntityEdit"
+        datasource="rootEntityDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.clovertest.web.rootentity">
+    <dsContext>
+        <datasource id="rootEntityDs"
+                    class="com.company.clovertest.entity.RootEntity"
+                    view="rootEntity-view">
+            <collectionDatasource id="subListeDs"
+                                  property="subListe"/>
+        </datasource>
+    </dsContext>
+    <actions>
+        <action id="newUserAction"
+                caption="Liste leeren"
+                description="Liste leeren"
+                invoke="onNewUserAction"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="rootEntityDs">
+            <column width="250px">
+                <field property="code"/>
+                <field property="bezeichnung"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="subListeBox"
+                  caption="msg://com.company.clovertest.entity/RootEntity.subListe">
+            <table id="subListeTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="bezeichnung"/>
+                </columns>
+                <rows datasource="subListeDs"/>
+                <buttonsPanel>
+                    <button action="subListeTable.create"/>
+                    <button action="subListeTable.edit"/>
+                    <button action="subListeTable.remove"/>
+                    <button action="newUserAction"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

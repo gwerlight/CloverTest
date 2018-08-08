@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.clovertest.web.subelement1.SubElement1Browse"
+        focusComponent="subElement1sTable"
+        lookupComponent="subElement1sTable"
+        messagesPack="com.company.clovertest.web.subelement1">
+    <dsContext>
+        <groupDatasource id="subElement1sDs"
+                         class="com.company.clovertest.entity.SubElement1"
+                         view="_local">
+            <query>
+                <![CDATA[select e from clovertest$SubElement1 e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="subElement1sTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="subElement1sTable"
+                datasource="subElement1sDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="subElement1sTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="code"/>
+                <column id="bezeichnung"/>
+            </columns>
+            <rows datasource="subElement1sDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="subElement1sTable.create"/>
+                <button id="editBtn"
+                        action="subElement1sTable.edit"/>
+                <button id="removeBtn"
+                        action="subElement1sTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

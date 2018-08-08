@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.clovertest.entity.RootEntity"
+          extends="_local"
+          name="rootEntity-view">
+        <property name="subListe"
+                  view="_minimal"/>
+    </view>
+</views>
